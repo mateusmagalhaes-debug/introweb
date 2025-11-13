@@ -1,0 +1,10 @@
+├── index.html        # Tela principal com navegação
+├── style.css         # Estilo moderno e unificado
+├── pacientes.html    # Cadastro e gestão de pacientes
+├── medicos.html      # Cadastro e gestão de médicos
+├── consultas.html    # Registro de consultas
+├── script.js         # Funções globais (menu, navegação)
+└── models/
+    ├── pacientes.js
+    ├── medicos.js
+    └── consultas.js

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - HospitalCare</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-primary fw-bold" href="dashboard.html">🏥 HospitalCare</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="pacientes.html" class="nav-link">👥 Pacientes</a></li>
+          <li class="nav-item"><a href="medicos.html" class="nav-link">👨‍⚕️ Médicos</a></li>
+          <li class="nav-item"><a href="consultas.html" class="nav-link">📋 Consultas</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">🏠 Início</a></li>
+        </ul>
+      </div>
+      <div>
+        <button type="button" class="btn btn-outline-secondary" onclick="history.back()" aria-label="Voltar">Voltar</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <h2 class="mb-4 fw-bold">Dashboard Administrativo</h2>
+
+    <!-- Cards de Estatísticas -->
+    <div class="row mb-4">
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 text-center border-0 shadow-sm" style="background: linear-gradient(135deg, #0b6fa6, #075a87);">
+          <h3 class="text-white" id="totalPacientes">0</h3>
+          <p class="text-white-50">Pacientes Cadastrados</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 text-center border-0 shadow-sm" style="background: linear-gradient(135deg, #1fa07a, #158a63);">
+          <h3 class="text-white" id="totalMedicos">0</h3>
+          <p class="text-white-50">Médicos Cadastrados</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 text-center border-0 shadow-sm" style="background: linear-gradient(135deg, #17a2b8, #0c8296);">
+          <h3 class="text-white" id="totalConsultas">0</h3>
+          <p class="text-white-50">Consultas Agendadas</p>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card p-4 text-center border-0 shadow-sm" style="background: linear-gradient(135deg, #fd7e14, #e06e1b);">
+          <h3 class="text-white" id="totalEspecialidades">0</h3>
+          <p class="text-white-50">Especialidades</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de Acesso Rápido -->
+    <div class="row mb-4">
+      <div class="col-md-4 mb-3">
+        <div class="card p-4 border-0 shadow-sm text-center">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">👥</div>
+          <h5>Gerenciar Pacientes</h5>
+          <p class="text-muted">Cadastro e controle de pacientes</p>
+          <a href="pacientes.html" class="btn btn-primary">Acessar</a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card p-4 border-0 shadow-sm text-center">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">👨‍⚕️</div>
+          <h5>Gerenciar Médicos</h5>
+          <p class="text-muted">Cadastro e dados profissionais</p>
+          <a href="medicos.html" class="btn btn-success">Acessar</a>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card p-4 border-0 shadow-sm text-center">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+          <h5>Gerenciar Consultas</h5>
+          <p class="text-muted">Agendamentos e registros</p>
+          <a href="consultas.html" class="btn btn-info">Acessar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Últimos Pacientes -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="card p-4 border-0 shadow-sm">
+          <h5 class="mb-3">Últimos Pacientes Cadastrados</h5>
+          <table class="table table-sm table-hover mb-0">
+            <thead class="table-light">
+              <tr><th>Nome</th><th>CPF</th><th>Idade</th></tr>
+            </thead>
+            <tbody id="ultimosPacientes">
+              <tr><td colspan="3" class="text-center text-muted">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Últimos Médicos -->
+      <div class="col-md-6">
+        <div class="card p-4 border-0 shadow-sm">
+          <h5 class="mb-3">Últimos Médicos Cadastrados</h5>
+          <table class="table table-sm table-hover mb-0">
+            <thead class="table-light">
+              <tr><th>Nome</th><th>CRM</th><th>Especialidade</th></tr>
+            </thead>
+            <tbody id="ultimosMedicos">
+              <tr><td colspan="3" class="text-center text-muted">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center text-muted py-3 mt-5">
+      © 2025 HospitalCare — Sistema de Gerenciamento Hospitalar
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="modules/dashboard.js"></script>
+</body>
+</html>
